@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { config } from '../../../env/config';
 
 @Injectable()
 export class GithubService {
   private username:string;
-  private client_id = '86f3f734aa4c534d17a0';
-  private client_secret = '5502805bdced0af024b10eb852105c31e5235d42';
+  private client_id = config.client_id;
+  private client_secret = config.client_secret;
 
   constructor(private _http: Http) { 
     console.log('Github Service Ready...');
-    this.username = 'gtchax';
+    this.username = config.client_name;
   }
 
   getUser(){
